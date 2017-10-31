@@ -17,5 +17,6 @@
     <!-- 引入映射文件 -->
     <mappers>
         <mapper resource="UserMapper.xml"/>
+        <mapper resource="OrderMapper.xml"/>
     </mappers>
 </configuration>

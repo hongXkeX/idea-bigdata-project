@@ -1,6 +1,7 @@
 package com.it18zhang.mybatisdemo.domain;
 
 /**
+ * 用户类
  * @author hongXkeX
  * @date 2017/10/31 10:56
  */
