@@ -1,5 +1,6 @@
 package com.it18zhang.mybatisdemo;
 
+import com.it18zhang.mybatisdemo.domain.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -22,8 +23,13 @@ public class App {
             SqlSessionFactory sf = new SqlSessionFactoryBuilder().build(inputStream);
             // 通过sf开启会话 相当于建立连接
             SqlSession s = sf.openSession();
-            System.out.println(s);
-            System.out.println("Hello");
+
+            User user = new User();
+            user.setName("tom3");
+            user.setAge(13);
+            s.insert("users.insert", user);
+            s.commit();
+            s.close();
         } catch (Exception e) {
             e.printStackTrace();
         }

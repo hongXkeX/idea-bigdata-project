@@ -14,4 +14,8 @@
             </dataSource>
         </environment>
     </environments>
+    <!-- 引入映射文件 -->
+    <mappers>
+        <mapper resource="UserMapper.xml"/>
+    </mappers>
 </configuration>
