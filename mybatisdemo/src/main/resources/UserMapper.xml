@@ -16,16 +16,42 @@
         update users set name = #{name}, age = #{age} where id = #{id}
     </update>
 
-
     <!-- selectOne -->
-    <select id="selectOne" parameterType="int" resultType="com.it18zhang.mybatisdemo.domain.User">
-        select * from users where id = #{id}
+    <select id="selectOne" parameterType="int" resultMap="RM_User">
+        select
+          u.id uid,
+          u.name uname,
+          u.age uage,
+          o.id oid,
+          o.orderno oorderno
+        from users u
+          left outer join orders o on u.id=o.uid
+        where u.id = #{id};
     </select>
 
     <!-- selectAll -->
-    <select id="selectAll" resultType="com.it18zhang.mybatisdemo.domain.User">
-        select * from users
+    <select id="selectAll" resultMap="RM_User">
+        select
+          u.id uid,
+          u.name uname,
+          u.age uage,
+          o.id oid,
+          o.orderno oorderno
+        from users u
+          left outer join orders o on u.id=o.uid;
     </select>
+
+    <resultMap id="RM_User" type="_User">
+        <id property="id" column="uid"/>
+        <result property="name" column="uname"/>
+        <result property="age" column="uage"/>
+        <!-- 映射一对多关联关系 -->
+        <collection property="orders" ofType="_Order">
+            <id property="id" column="oid"/>
+            <result property="orderNo" column="oorderno"/>
+        </collection>
+    </resultMap>
+
 
     <delete id="deleteOne">
         delete from users where id = #{id}

@@ -1,5 +1,7 @@
 package com.it18zhang.mybatisdemo.domain;
 
+import java.util.List;
+
 /**
  * 用户类
  * @author hongXkeX
@@ -9,6 +11,16 @@ public class User {
     private Integer id;
     private String name;
     private int age;
+
+    private List<Order> orders;
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
+    }
 
     public Integer getId() {
         return id;

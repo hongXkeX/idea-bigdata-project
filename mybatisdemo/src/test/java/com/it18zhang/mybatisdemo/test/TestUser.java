@@ -1,5 +1,6 @@
 package com.it18zhang.mybatisdemo.test;
 
+import com.it18zhang.mybatisdemo.domain.Order;
 import com.it18zhang.mybatisdemo.domain.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -14,7 +15,7 @@ import java.util.List;
  * @author hongXkeX
  * @date 2017/10/31 13:13
  */
-public class TestCRUD {
+public class TestUser {
 
     /**
      * insert
@@ -83,7 +84,10 @@ public class TestCRUD {
         SqlSessionFactory sf = new SqlSessionFactoryBuilder().build(inputStream);
         SqlSession s = sf.openSession();
         User user = s.selectOne("users.selectOne",1);
-        System.out.println(user.getId() + " " + user.getName() + " " + user.getAge());
+        System.out.println(user.getName());
+        for (Order order : user.getOrders()) {
+            System.out.println(order.getId()+" "+order.getOrderNo());
+        }
         s.commit();
         s.close();
     }
