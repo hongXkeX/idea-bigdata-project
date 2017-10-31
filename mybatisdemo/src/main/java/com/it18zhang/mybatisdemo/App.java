@@ -23,10 +23,9 @@ public class App {
             SqlSessionFactory sf = new SqlSessionFactoryBuilder().build(inputStream);
             // 通过sf开启会话 相当于建立连接
             SqlSession s = sf.openSession();
-
             User user = new User();
-            user.setName("tom3");
-            user.setAge(13);
+            user.setName("hongXkeX");
+            user.setAge(24);
             s.insert("users.insert", user);
             s.commit();
             s.close();
