@@ -5,7 +5,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import java.io.IOException;
 import java.io.InputStream;
 
 /**
@@ -24,6 +23,7 @@ public class App {
             // 通过sf开启会话 相当于建立连接
             SqlSession s = sf.openSession();
             System.out.println(s);
+            System.out.println("Hello");
         } catch (Exception e) {
             e.printStackTrace();
         }
