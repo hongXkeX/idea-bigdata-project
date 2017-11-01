@@ -2,13 +2,9 @@ package com.it18zhang.mybatisdemo.dao;
 
 import com.it18zhang.mybatisdemo.domain.User;
 import com.it18zhang.mybatisdemo.util.Util;
-import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import java.io.IOException;
-import java.io.InputStream;
+import java.util.List;
 
 /**
  * UserDao
@@ -21,35 +17,44 @@ public class UserDao {
      * 插入操作
      * @param user
      */
-    public void insert(User user) {
-        SqlSession s = null;
-        try {
-            s = Util.openSession();
-            s.insert("users.insert", user);
-            s.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-            Util.rollbackTx(s);
-        } finally {
-            Util.closeSession(s);
-        }
+    public void insert(final User user) {
+        DaoTemplate.execute(new MybatisCallback() {
+            public Object doInMybatis(SqlSession s) {
+                s.insert("users.insert", user);
+                return null;
+            }
+        });
     }
 
     /**
      * 更新操作
      * @param user
      */
-    public void update(User user) {
-        SqlSession s = null;
-        try {
-            s = Util.openSession();
-            s.update("users.update", user);
-            s.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-            Util.rollbackTx(s);
-        } finally {
-            Util.closeSession(s);
-        }
+    public void update(final User user) {
+        DaoTemplate.execute(new MybatisCallback() {
+            public Object doInMybatis(SqlSession s) {
+                s.update("users.update", user);
+                return null;
+            }
+        });
     }
+
+    public User selectOne(final Integer id) {
+        return (User)DaoTemplate.execute(new MybatisCallback() {
+            public Object doInMybatis(SqlSession s) {
+                return s.selectOne("users.selectOne", id);
+            }
+        });
+    }
+
+    public List<User> selectAll() {
+        return (List<User>)DaoTemplate.execute(new MybatisCallback() {
+            public Object doInMybatis(SqlSession s) {
+                return s.selectList("users.selectAll");
+            }
+        });
+    }
+
+
+
 }
