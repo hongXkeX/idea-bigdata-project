@@ -1,5 +1,6 @@
 package com.it18zhang.mybatisdemo.test;
 
+import com.it18zhang.mybatisdemo.domain.Item;
 import com.it18zhang.mybatisdemo.domain.Order;
 import com.it18zhang.mybatisdemo.domain.User;
 import com.sun.org.apache.xpath.internal.operations.Or;
@@ -41,7 +42,10 @@ public class TestOrder {
         SqlSessionFactory sf = new SqlSessionFactoryBuilder().build(inputStream);
         SqlSession s = sf.openSession();
         Order order = s.selectOne("orders.selectOne",1);
-        System.out.println(order.getId()+" "+order.getOrderNo()+" "+" "+order.getUser().getId()+" "+order.getUser().getName());
+        System.out.println(order.getOrderNo() + " " + order.getUser().getName());
+        for (Item i : order.getItems()) {
+            System.out.println(i.getId()+" : "+i.getItemName());
+        }
         s.commit();
         s.close();
     }

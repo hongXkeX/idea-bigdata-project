@@ -1,5 +1,7 @@
 package com.it18zhang.mybatisdemo.domain;
 
+import java.util.List;
+
 /**
  * 订单类
  * @author hongXkeX
@@ -10,6 +12,16 @@ public class Order {
     private String orderNo;
     // 建立订单类和用户之间的关联关系(多个订单可能同属于一个用户 所以是多对一的关系）
     private User user;
+
+    private List<Item> items;
+
+    public List<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(List<Item> items) {
+        this.items = items;
+    }
 
     public Integer getId() {
         return id;

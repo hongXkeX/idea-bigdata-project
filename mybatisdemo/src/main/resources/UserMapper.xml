@@ -52,7 +52,6 @@
         </collection>
     </resultMap>
 
-
     <delete id="deleteOne">
         delete from users where id = #{id}
     </delete>
