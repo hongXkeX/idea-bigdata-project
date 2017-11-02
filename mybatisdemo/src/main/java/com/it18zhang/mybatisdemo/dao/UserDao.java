@@ -1,7 +1,6 @@
 package com.it18zhang.mybatisdemo.dao;
 
 import com.it18zhang.mybatisdemo.domain.User;
-import com.it18zhang.mybatisdemo.util.Util;
 import org.apache.ibatis.session.SqlSession;
 
 import java.util.List;
@@ -14,7 +13,7 @@ import java.util.List;
 public class UserDao {
 
     /**
-     * 插入操作
+     * insert
      * @param user
      */
     public void insert(final User user) {
@@ -27,7 +26,7 @@ public class UserDao {
     }
 
     /**
-     * 更新操作
+     * update
      * @param user
      */
     public void update(final User user) {
@@ -39,6 +38,11 @@ public class UserDao {
         });
     }
 
+    /**
+     * selectOne
+     * @param id
+     * @return
+     */
     public User selectOne(final Integer id) {
         return (User)DaoTemplate.execute(new MybatisCallback() {
             public Object doInMybatis(SqlSession s) {
@@ -47,6 +51,10 @@ public class UserDao {
         });
     }
 
+    /**
+     * selectAll
+     * @return
+     */
     public List<User> selectAll() {
         return (List<User>)DaoTemplate.execute(new MybatisCallback() {
             public Object doInMybatis(SqlSession s) {
@@ -54,7 +62,4 @@ public class UserDao {
             }
         });
     }
-
-
-
 }

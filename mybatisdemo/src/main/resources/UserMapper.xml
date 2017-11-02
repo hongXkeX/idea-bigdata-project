@@ -64,5 +64,4 @@
         truncate table users
     </delete>
 
-
 </mapper>
