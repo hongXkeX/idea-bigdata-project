@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/idea-bigdata-project.iml" filepath="$PROJECT_DIR$/idea-bigdata-project.iml" />
       <module fileurl="file://$PROJECT_DIR$/mybatisdemo/mybatisdemo.iml" filepath="$PROJECT_DIR$/mybatisdemo/mybatisdemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/springdemo/springdemo.iml" filepath="$PROJECT_DIR$/springdemo/springdemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springmybatisdemo/springmybatisdemo.iml" filepath="$PROJECT_DIR$/springmybatisdemo/springmybatisdemo.iml" />
     </modules>
   </component>
 </project>
