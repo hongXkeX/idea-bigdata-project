@@ -1,7 +1,7 @@
 package com.it18zhang.springdemo;
 
-import com.it18zhang.springdemo.service.WelcomeService;
 import org.springframework.context.ApplicationContext;
+import com.it18zhang.springdemo.service.WelcomeService;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
