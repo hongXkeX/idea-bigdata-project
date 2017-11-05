@@ -17,6 +17,5 @@ public class TestDataSource {
         ApplicationContext ac = new ClassPathXmlApplicationContext("beans.xml");
         DataSource ds = (DataSource)ac.getBean("dataSource");
         System.out.println(ds.getConnection());
-
     }
 }
